@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>城市桥梁信息管理系统</title>
+	<meta name="keywords" content="城市桥梁信息管理系统" />
+	<meta name="description" content="城市桥梁信息管理系统" />
+	<meta name="renderer" content="webkit">
+	<link rel="shortcut icon" href="/static/images/logo.ico" type="image/x-icon" />
+	
+	<link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/fontawesome.css" />
+	<!--[if lt IE 9]><body class="ie ie6 lte9 lte8 lte7"><![endif]-->
+	<!--[if !IE | (gte IE 9)]><!-->
+	<style>
+		html, body {
+			margin: 0;
+			height: 100%:;
+		}
+		#bg-up {
+			background: #eaeaea;
+			position: absolute;
+			width: 100%;
+			height: 50%;
+			top: 0;
+			z-index: -9;
+		}
+		#bg-bottom {
+			background: #fff;
+			position: absolute;
+			width: 100%;
+			height: 50%;
+			bottom: 0;
+			z-index: -9;
+		}
+		#sys-text {
+			width: 100%;
+			height: 100px;
+			background: url(/static/images/login_03.png) no-repeat center center;
+		}
+		#login-pane {
+			height: 275px;
+			width: 100%;
+			background-position:0% 97px;
+		}
+		#login-pane-left, #login-pane-right	{
+			margin-left:-357px;
+			width: 50%;
+			height: 100%;
+			float: left;
+		}
+		#login-pane-left .inner, #login-pane-right .inner{
+			margin:0 0 0 357px;
+			height: 100%;
+			background: url(/static/images/login_10.png) repeat-x 0 84px;
+		}
+		#login-pane-center {
+			width: 714px;
+			height: 100%;
+			margin: 0 auto 0;
+			float: left;
+		}
+		#login-box {
+			width: 506px;
+			height: 100%;
+			/*margin: 0 auto 0;*/
+			box-shadow: 0px 0px 8px #aaa;
+			border-radius: 6px;
+			float: left;
+			background: #fff;
+		}
+		#login-box-left {
+			height: 100%;
+			width: 52px;
+			background: url(/static/images/login_07.png) no-repeat 0 center;
+			float: left;
+		}
+		#login-box-left-extra, #login-box-right-extra {
+			width: 52px;
+			height: 100%;
+			float: left;
+		}
+		#login-box-left-extra {
+			background: url(/static/images/login_13.png) repeat-x 0 85px;
+		}
+		 #login-box-right-extra {
+			background: url(/static/images/login_13.png) repeat-x 0 84px;
+		 }
+		#login-box-right {
+			height: 100%;
+			width: 52px;
+			background: url(/static/images/login_15.png) no-repeat 0 center;
+			float: left;
+		}
+		#login-box-right {
+			height: 100%;
+		}
+		#login-box-top {
+			width: 100%;
+			height: 60px;
+			position: relative;
+			border-bottom: 3px solid #ddd;
+		}
+		#login-text {
+			position: absolute;
+			left: 0px;
+			bottom: -3px;
+			font-size: 20px;
+			color: #0088ce;
+			border-bottom: 4px solid #0088ce;
+			padding: 5px 8px 5px 8px;
+		}
+		#login-box-content {
+			height: 212px;
+			width: 100%;
+		}
+		#login-img {
+			width: 273px;
+			height: 100%;
+			background: url(/static/images/picture1_07.jpg);
+			background-repeat: no-repeat;
+			float: left;
+		}
+		#login-form {
+			width: 227px;
+			height: 100%;
+			float: left;
+		}
+		#login-form form {
+			position: relative;
+			top: 27px;
+			right: 18px;
+			width: 90%;
+		}
+		#login-form .btn {
+			position: relative;
+			left: 28px;
+		}
+		input {
+			display: block;
+			width: 100%;
+			height: 25px;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			color: #555;
+			background-color: #fff;
+			background-image: none;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+			box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+			-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+			-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+			transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		}
+		input {
+			margin-bottom: 8px;
+		}
+		.btn {
+			display: inline-block;
+			padding: 3px 12px;
+			margin-bottom: 0;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.42857143;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			background-image: none;
+			border: 1px solid transparent;
+			border-radius: 4px;
+		}
+		.btn-primary {
+			color: #fff;
+			background-color: #428bca;
+			border-color: #357ebd;
+		}
+		.pull-right {
+			float: right;
+		}
+		footer {
+			color: #888;
+			text-align: center;
+			margin-top: 100px;
+			font-size: 13px;
+		}
+		#err-msg {
+			position: absolute;
+			right: 21px;
+			bottom: 2px;
+			color: #D9534F;
+		}
+		.body-center{
+			position: absolute;
+			width: 100%;
+			top: 50%;
+			margin-top: -250px;
+		}
+		#people-list {
+			text-align: center;
+			padding: 0;
+		}
+		#people-list li {
+			display: inline-block;
+			list-style: none;
+		}
+	</style>
+	<!--<![endif]-->
+</head>
+<!--[if IE]><body class="ie ie6 lte9 lte8 lte7">
+	<div id="ie">
+		<style type="text/css">
+			#wrapper{
+				margin-top: 100px;
+				height: 305px;
+				text-align: center;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+
+			#header{
+				font-size: 14px;
+				line-height: 20px;
+				
+				color: #333;
+				text-align: center;
+			}
+
+			.logo{
+				color: #428bca;
+				margin-bottom: 30px;
+				text-align: center;
+			}
+			.browsers li{
+				margin: 10px;
+				display: inline;
+				text-decoration: none;
+				border: none;
+			}
+			.browsers li a{
+				text-decoration: none;
+			}
+			#update_ie_message{
+				color: #CC0000;
+			}
+			</style>
+		<div id='wrapper' class="hide">
+			<div id='overlay'></div>
+			<header id='header'>
+				<div class='container'>
+					<h1 class='logo'>
+					桥梁信息管理系统
+					</h1>
+				</div>
+			</header>
+
+			<div class='container'>
+				<div id='update_ie_message'>
+					<h2>很抱歉，不支持您的浏览器！</h2>
+					<p>为了提升您的体验，恳请使用我们推荐的以下浏览器浏览。</p>
+					<p>如果您用的是360安全浏览器或者搜狗浏览器，请切换到急速模式。</p>
+					<p><a href="http://dlsw.baidu.com/sw-search-sp/soft/9d/14744/ChromeStandaloneSetup35.0.1916.114.1401167998.exe">点击下载推荐浏览器</a></p>
+					<ul class='browsers'>
+						<li>
+							<a href='http://dlsw.baidu.com/sw-search-sp/soft/9d/14744/ChromeStandaloneSetup35.0.1916.114.1401167998.exe' target='_blank' title="点击下载chrome">
+								<img alt="Chrome" src="{{ static_url("images/chrome.png") }}" />
+							</a>
+						</li>
+						<li>
+							<a href='http://www.mozilla.org/en-US/firefox/new/' target='_blank' title="firefox">
+								<img alt="Firefox" src="{{ static_url("images/firefox.png") }}" />
+							</a>
+						</li>
+						<li>
+							<a href='http://www.apple.com/safari/' target='_blank' title="safari">
+								<img alt="Safari" src="{{ static_url("images/safari.png") }}" />
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+<![endif]-->
+<!--[if !IE]><!-->
+<body class="not-ie">
+	<div id="bg-up"></div>
+	<div id="bg-bottom"></div>
+	<div class="body-center">
+		<div id="sys-text"></div>
+
+		<div id="login-pane">
+			<div id="login-pane-left">
+				<div class="inner"></div>
+			</div>
+			<div id="login-pane-center">
+				<div id="login-box-left"></div>
+				<div id="login-box-left-extra"></div>
+				<div id="login-box">
+					<div id="login-box-top">
+						<div id="login-text">
+							<span class="fa fa-user"></span>
+							用户登陆
+						</div>
+					    {% if  errmsg %}
+							<div id="err-msg">
+									<strong>{{ errmsg }}</strong>
+							</div>
+					    {% end %}
+					</div>
+					<div id="login-box-content">
+						<div id="login-img"></div>
+						<div id="login-form">
+							<form  method='post' action="/login">
+							    <input type='hidden' name='next_url' value='{{ next_url or "/"}}'>
+	                            <input type='hidden' name='loginerrurl' value='{{ loginerrurl }}'>
+								<input type='hidden' name='level' value='master'>
+								<input name="loginname" type="text" placeholder="用户名">
+								<input name="pwd" type="password" placeholder="密码">
+								<button type="submit" class="btn btn-primary pull-right">
+									<span class="fa fa-key"></span>
+									登陆
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div id="login-box-right-extra"></div>
+				<div id="login-box-right"></div>
+			</div>
+			<div id="login-pane-right">
+				<div class="inner"></div>
+			</div>
+		</div>
+
+		<footer>
+			<div>
+			© 2013 源清慧虹信息科技有限公司, Inc. 苏ICP备13043359号
+			</div>
+		</footer>
+
+	</div>
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<script src="/static/js/Validform_v5.3.1.js"></script>
+<script>
+$(function(){
+
+	var ImgApp = {
+		baseUrl: '/static/images/',
+		imgSrc : ['picture1_07.jpg', 'picture2_07.jpg', 'picture3_07.jpg', 'picture4_07.jpg'],
+		imgIndex : 0,
+		init : function () {
+			this.imgIndex = this.imgIndex === 3 ? 0 : this.imgIndex + 1;
+
+			var img = 'url(' + this.baseUrl + this.imgSrc[this.imgIndex] + ')';
+			$('#login-img').animate({opacity:0.4}, 500, function(){
+				$('#login-img').css('background', img);
+				$('#login-img').animate({opacity:1}, 500);
+			});
+		}
+	}
+
+	ImgApp.init();
+	setInterval(function(){
+		ImgApp.init();
+	}, 3000);
+});
+</script>
+<!--<![endif]-->
+</body>
+</html>

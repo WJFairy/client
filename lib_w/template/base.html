@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
+  <link href="/static/css/style.default.css" rel="stylesheet">
+
+  {% block style %}{% end %}
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="/static/_js/html5shiv.js"></script>
+  <script src="/static/_js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+  <div class="leftpanel">
+    
+    <div class="logopanel">
+        <h1><span></span> 管理系统 <span></span></h1>
+    </div><!-- logopanel -->
+        
+    <div class="leftpanelinner">      
+      <ul class="nav nav-pills nav-stacked nav-bracket">
+        <li class="index"><a href="/"><i class="fa fa-home"></i> <span>首页</span></a></li>
+        <li class="settings"><a href="/settings"><i class="fa fa-caret-right"></i> <span>系统设置</span></a></li>
+        <li class="user"><a href="/user"><i class="fa fa-caret-right"></i> <span>用户管理</span></a></li>
+        <!--li class="nav-parent"><a href=""><i class="fa fa-suitcase"></i> <span>系统管理</span></a>
+          <ul class="children">
+            <li class="user"><a href="/user"><i class="fa fa-caret-right"></i> 用户管理 </a></li>
+          </ul>
+        </li-->
+      </ul>
+    </div><!-- leftpanelinner -->
+  </div><!-- leftpanel -->
+  
+  <div class="mainpanel">
+    <div class="headerbar">
+      <a class="menutoggle"><i class="fa fa-bars"></i></a>
+      <form class="searchform" action="index.html" method="post">
+        <!-- <input type="text" class="form-control" name="keyword" placeholder="Search here..." /> -->
+      </form>
+      
+      <div class="header-right">
+        <ul class="headermenu">
+          <li>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                John
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                <li><a href="profile.html"><i class="glyphicon glyphicon-user"></i> 账户信息</a></li>
+                <li><a href="signin.html"><i class="glyphicon glyphicon-log-out"></i> 登出 </a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div><!-- header-right -->
+    </div><!-- headerbar -->
+
+      <div class="pbody">
+      <div class="page-content">
+      {% block content %}{% end %}
+      </div>
+      </div>
+  </div><!-- mainpanel -->
+  
+
+</section>
+
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<script src="/static/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/util.js"></script>
+{% block script %}{% end %}
+</body>
+</html>

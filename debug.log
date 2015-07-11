@@ -1,0 +1,45 @@
+[0712/132553:FATAL:content_main_runner.cc(736)] Check failed: base::i18n::InitializeICU(). 
+[0712/132600:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/132600:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/132607:INFO:CONSOLE(1)] "Uncaught ReferenceError: $ is not defined", source: http://www.baidu.com/ (1)
+[0712/134834:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/134835:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/135231:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/135231:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/135349:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/135349:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/140203:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/140204:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/140210:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/140210:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/140334:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/140334:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/140411:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/140411:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/140450:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/140450:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/140933:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/140933:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0712/141014:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0712/141014:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1013/221513:WARNING:dns_config_service_win.cc(653)] Failed to read DnsConfig.
+[1013/221513:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[1013/221515:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1013/221518:WARNING:dns_config_service_win.cc(653)] Failed to read DnsConfig.
+[1013/221726:WARNING:dns_config_service_win.cc(653)] Failed to read DnsConfig.
+[1013/221726:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[1013/221727:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/205729:WARNING:dns_config_service_win.cc(653)] Failed to read DnsConfig.
+[1019/205730:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[1019/205732:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/205734:WARNING:dns_config_service_win.cc(653)] Failed to read DnsConfig.
+[1019/205856:WARNING:dns_config_service_win.cc(653)] Failed to read DnsConfig.
+[1019/205856:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[1019/205856:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[1019/210549:WARNING:dns_config_service_win.cc(653)] Failed to read DnsConfig.
+[1019/210549:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[1019/210549:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0617/220712:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0617/220714:ERROR:renderer_main.cc(226)] Running without renderer sandbox
+[0617/220719:ERROR:gpu_info_collector_win.cc(102)] Can't retrieve a valid WinSAT assessment.
+[0617/220719:ERROR:renderer_main.cc(226)] Running without renderer sandbox

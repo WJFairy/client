@@ -1,0 +1,4 @@
+Message: Uncaught ReferenceError: $ is not defined
+Source: http://www.baidu.com/
+Line: 1
+-----------------------

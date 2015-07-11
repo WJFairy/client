@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<title>403</title>
+	<link rel="stylesheet" href="/static/css/jquery.funnyText.css" />
+	<style>
+		.text1, .text2{
+			display:block;
+			font-size: 6px;
+			text-align:center;
+		}
+		body{
+			font-family:arial;
+		}
+
+		.text2 span {
+			background-color: #DFE2DB;
+		}
+		.text2 span.active {
+			background-color: #3B3738;
+		}
+
+		/* Web design
+		* --------------------------------------- */
+		.table{
+			display:table;
+			width:100%;
+			height: 100%;
+		}
+		.tableCell{
+			display:table-cell;
+			vertical-align: middle;
+			width:100%;
+			height: 100%;
+		}
+		body, html{
+			margin:0;
+			padding:0;
+			height:100%;
+			background-image: url(imgs/grain.png);
+		}
+
+	</style>
+<script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.funnyText.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function() {
+			$('.text1').funnyText({
+				speed: 700,
+				activeColor: '#fff',
+				color: 'black',
+				fontSize: '8em'
+			});
+			
+			$('.text2').funnyText({
+				speed: 700,
+				fontSize: '7em',
+				color: '#191919',
+				activeColor: '#fff',
+				borderColor: 'black'
+			});
+		});
+	</script>
+	
+	
+
+</head>
+<body>
+
+<div class="table">
+	<div class="tableCell">
+		<div class="text1"> 403</div>
+		<div class="text2"> 对不起，你没有权限访问该页面；如需帮助，请联系管理员 </div>
+	</div>
+</div>
+
+</body>
+</html>
