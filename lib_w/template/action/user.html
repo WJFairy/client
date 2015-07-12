@@ -1,6 +1,7 @@
 {% extends ../base.html %}
 
 {% block style %}
+<title>用户中心</title>
 <style type="text/css">
 
 </style>
@@ -15,80 +16,56 @@
     </div>
 </div>
 
-<table class="table table-hover bg-white">
+<table class="table table-hover">
     <thead>
         <tr>
-            <th class="center">
+            <th>
                 <label>
-                    <input type="checkbox" class="ace" />
+                    <input type="checkbox" class="chk_all" />
                     <span class="lbl"></span>
                 </label>
             </th>
-            <th>#</th>
-            <th>ID</th>
-            <th>用户名</th>
-            <th></th>
+            <th>操作员ID</th>
+            <th>姓名</th>
+            <th width="40%" class="text-center">操作</th>
         </tr>
     </thead>
     <tbody>
-        <tr class="id">
-            <td class="center">
+    {% for u in users %}
+        <tr _id="{{u[0]}}">
+            <td>
                 <label>
-                    <input type="checkbox" class="ace" />
+                    <input type="checkbox" name="chk" />
                     <span class="lbl"></span>
                 </label>
             </td>
-            <td class="access hide">
-                <span></span>
-            </td>
-            <td class="powers hide">
-                <span></span>
-            </td>
-            <td></td>
-            <td class="name"></td>
-            <td nowrap></td>
-            <td></td>
-            <td></td>
-
-            
+            <td>{{u[1]}}</td>
+            <td>{{u[2]}}</td>
             <td class="text-center">
-                <a class="companybtn" href="#modal-company" data-toggle="modal">
-                    <span class="badge badge-success"></span>
-                </a>
-            </td>
-
-            <td class="text-center">
-                <a class="rolebtn" href="#modal-role" data-toggle="modal" title="设置角色">
-                    <span class="badge badge-success">
-                    </span>
-                </a>
-            </td>
-
-            <td class="text-center">
-                <a class="lockbtn" href="#modal-lock" data-toggle="modal" title="点击修改权限">
-                    <span class="fa fa-lock bigger-120"></span>
-                </a>
-            </td>
-
-            <td nowrap>
                 <div class="btn-group">
-                    <a class="btn btn-xs btn-info pwdbtn" title="修改密码" href="#modal-pwd" data-toggle="modal">
-                        <span class="fa fa-key"></span>
-                        密码
-                    </a>
-                    <a class="btn btn-xs btn-primary editbtn" title="编辑" href="#modal-edituser" data-toggle="modal">
+                    <a class="btn btn-xs btn-primary editbtn" title="编辑"  href="#modal-edituser" data-toggle="modal">
                         <span class="fa fa-pencil"></span>
                         编辑
                     </a>
-                    <button class="btn btn-xs btn-danger delbtn" title="删除用户">
+                    <button class="btn btn-xs btn-lightblue deluser" title="删除用户" >
                         <span class="fa fa-trash-o"></span>
                         删除
                     </button>
                 </div>
             </td>
             </tr>
+        {% end %}
         </tbody>
     </table>
+</div>
+
+<div style="margin-left:10px">
+    <div id="add-user" class="btn-group dropup">
+        <button class="btn btn-sm btn-danger btn-delall">
+            删除所选
+            <span class="icon-user"></span>
+        </button>
+    </div>
 </div>
 
 <div id="modal-adduser" class="modal fade">
@@ -101,16 +78,16 @@
             <form class="form-horizontal" role="form" method="post" action="/user/add">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="blue col-xs-3 control-label">ID</label>
+                        <label class="blue col-xs-3 control-label">操作员ID</label>
                         <div class="col-xs-7">
-                            <input type="text" class="form-control" id="username" name='username' placeholder="用户名" class="inputxt" datatype="*" errmsg="昵称至少6个字符,最多18个字符！" />
+                            <input type="text" class="form-control" name='opt_ID' placeholder="用户名" class="inputxt" datatype="*" errmsg="昵称至少6个字符,最多18个字符！" />
                             <div class="Validform_checktip"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="blue col-xs-3 control-label">姓名</label>
                         <div class="col-xs-7">
-                            <input type="text" class="form-control" id="nickname" name='nickname' placeholder="用户名" class="inputxt" datatype="*" errormsg="不为空"/>
+                            <input type="text" class="form-control" name='nickname' placeholder="姓名" class="inputxt" datatype="*" errormsg="不为空"/>
                             <div class="Validform_checktip"></div>
                         </div>
                     </div>
@@ -125,6 +102,40 @@
     </div>
 </div>
 
+<div id="modal-edituser" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h5>修改用户</h5>
+            </div>
+            <form class="form-horizontal" role="form" method="post" action="/user/update">
+                <input type="hidden" name="_id"/>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="blue col-xs-3 control-label">操作员ID</label>
+                        <div class="col-xs-7">
+                            <input type="text" class="form-control" name='opt_ID' placeholder="姓名" class="inputxt" datatype="*" errmsg="昵称至少6个字符,最多18个字符！" />
+                            <div class="Validform_checktip"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="blue col-xs-3 control-label">姓名</label>
+                        <div class="col-xs-7">
+                            <input type="text" class="form-control" name='nickname' placeholder="用户名" class="inputxt" datatype="*" errormsg="不为空"/>
+                            <div class="Validform_checktip"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">
+                            添加
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 {% end %}
 
@@ -134,30 +145,77 @@
 $(function () {
     util.setNav('.user');
 
+    $(".chk_all").click(function(){
+        $("input[name='chk']").attr('checked', $(this).attr('checked') || false);
+    });
+    $(".btn-delall").click(function(){
+        var chks = $("input[name='chk']:checked");
+        var _ids = []
+        $.each(chks, function(i, item){
+            _ids.push($(item).parents("tr").attr("_id"));
+        });
+
+        if(!_ids.length) return
+        _ids = _ids.join(',');
+
+        $.post('/user/delall', {'_id': _ids}, function(data){
+            location.reload();
+        });
+    });
+
     $("#modal-adduser form").Validform({
         ajaxPost: true,
         tiptype: function(msg, o, cssctl) {
+            var objtip = o.obj.siblings(".Validform_checktip");
+            objtip.text("");
+            if(o.type == 2) return; 
             if (!o.obj.is("form")) {
-                var objtip = o.obj.siblings(".Validform_checktip");
-                cssctl(objtip, o.type);
-                objtip.text(msg);
-            } else {
-                var objtip = o.obj.find("#msgdemo");
                 cssctl(objtip, o.type);
                 objtip.text(msg);
             }
         },
         callback: function(data) {
             if (data.status == true) {
-                util.alert('添加成功');
                 location.reload();
-            } else {
-                util.alert('添加失败' + ' ' + data.data);
             }
         }
+    });
+
+    $("#modal-edituser form").Validform({
+        ajaxPost: true,
+        tiptype: function(msg, o, cssctl) {
+            var objtip = o.obj.siblings(".Validform_checktip");
+            objtip.text("");
+            if(o.type == 2) return; 
+            if (!o.obj.is("form")) {
+                cssctl(objtip, o.type);
+                objtip.text(msg);
+            }
+        },
+        callback: function(data) {
+            if (data.status == true) {
+                location.reload();
+            }
+        }
+    });
+
+    $(".deluser").click(function(){
+        var _id = $(this).parents("tr").attr("_id");
+        $.post("/user/del", {'_id': _id}, function(data){
+            location.reload();
+        });
     })
 
-
+    $(".editbtn").click(function(){
+        var _id = $(this).parents("tr").attr("_id");
+        $.get('/user/find', {'_id': _id}, function(data){
+            users = data.users;
+            $("#modal-edituser").find("input[name='_id']").val(users[0]);
+            $("#modal-edituser").find("input[name='opt_ID']").val(users[1]);
+            $("#modal-edituser").find("input[name='nickname']").val(users[2]);
+            $("#modal-edituser").show();
+        });
+    })
 })
 </script>
 {% end %}

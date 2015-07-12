@@ -1,0 +1,90 @@
+{% extends ../base.html %}
+
+{% block style %}
+<title>系统设置</title>
+<style type="text/css">
+
+</style>
+{% end %}
+{% block content %}    
+<div class="well">
+</div>
+
+<form class="form-horizontal" role="form" method="post" action="/settings">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">数据库地址</label>
+    <div class="col-sm-6">
+      <input name="db_host" class="form-control" placeholder="数据库地址"  datatype="*" value="{{db_host or ""}}">
+      <div class="Validform_checktip"></div>
+    </div>
+  </div>    
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label">用户</label>
+    <div class="col-sm-6">
+      <input name="db_user" class="form-control" placeholder="用户" datatype="*" value="{{db_user or ""}}">
+      <div class="Validform_checktip"></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">密码</label>
+    <div class="col-sm-6">
+      <input name="db_password" class="form-control" placeholder="用户" datatype="*" value="{{db_password or ""}}">
+      <div class="Validform_checktip"></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">数据库名称</label>
+    <div class="col-sm-6">
+      <input name="db_name" class="form-control" placeholder="数据库名称" datatype="*" value="{{db_name or ""}}">
+      <div class="Validform_checktip"></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-1">
+      <button type="submit" class="btn btn-default">设置</button>
+    </div>  
+    <div class="col-sm-1">
+        <p class="text-left" id="result-label" style="margin-top: 5px; color:red"></p>
+    </div>  
+    
+    <!-- <div class="col-sm-2 alert alert-danger hidden" style="height: 35px" id="result-label"></div> -->
+  </div>
+</form>
+
+{% end %}
+
+{% block script%}
+<script src="/static/js/Validform_v5.3.1.js"></script>
+<script>
+$(function () {
+    util.setNav('.settings');
+})
+
+    $("form").Validform({
+        ajaxPost: true,
+        tiptype: function(msg, o, cssctl) {
+            $("#result-label").html("");
+            var objtip = o.obj.siblings(".Validform_checktip");
+            objtip.text("");
+            if(o.type == 2) return; 
+            if (!o.obj.is("form")) {
+                cssctl(objtip, o.type);
+                objtip.text(msg);
+            }
+        },
+        callback: function(data) {
+            if (data.status == true) {
+                $("#result-label").html("设置成功");
+            } else {
+                $("#result-label").html("设置失败");
+            }
+        }
+    })
+
+
+</script>
+{% end %}

@@ -79,7 +79,7 @@ util.getModal = function(modalId) {
 };
 
 util.alert = function(txt) {
-    var tmp = '<div class="myalert widget-box light-border" style="opacity: 1;"><div class="widget-header"><h5 class="smaller">桥梁信息管理系统</h5><div class="widget-toolbar no-border"><a href="#" data-action="close"> <i class="icon-remove"></i></a></div></div><div class="widget-body"><div class="widget-main padding-6"><div class="alert"></div><a class="btn btn-sm btn-danger" href="#" data-action="close">确定</a></div></div></div>';
+    var tmp = '<div class="myalert widget-box light-border" style="opacity: 1;"><div class="widget-header"><h5 class="smaller"></h5><div class="widget-toolbar no-border"><a href="#" data-action="close"> <i class="icon-remove"></i></a></div></div><div class="widget-body"><div class="widget-main padding-6"><div class="alert"></div><a class="btn btn-sm btn-danger" href="#" data-action="close">确定</a></div></div></div>';
 
     $tmp = $(tmp);
     $tmp.find('.alert').text(txt);

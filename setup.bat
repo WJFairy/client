@@ -1,4 +1,5 @@
 ntsd -c q -pn run.exe
+del 新客户端测试系统.exe /F /S /Q
 
 cd C:\workspace\web
 
